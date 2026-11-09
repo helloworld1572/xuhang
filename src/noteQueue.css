@@ -1,0 +1,46 @@
+.note-queue {
+  padding: 15px 24px;
+  border-top: 1px solid var(--line);
+  background: #faf8ef;
+  color: #665938;
+  font-size: 12px;
+}
+
+.note-queue-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.note-queue-heading .button {
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+.note-queue ul {
+  max-height: 220px;
+  overflow: auto;
+  list-style: none;
+  padding: 0;
+  margin: 9px 0 0;
+}
+
+.note-queue li {
+  padding: 9px 0;
+  border-top: 1px solid #ece5d2;
+}
+
+.note-queue time {
+  font-size: 10px;
+}
+
+.note-queue li p {
+  margin: 3px 0 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.note-queue .error {
+  margin: 9px 0 0;
+}
