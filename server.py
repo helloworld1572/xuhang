@@ -21,6 +21,7 @@ from starlette.concurrency import run_in_threadpool
 
 from ai_draft import DraftRequest, DraftResult, DraftUnavailableError, generate_draft
 from network import lan_addresses
+from collaboration_api import install_collaboration
 
 ROOT = Path(__file__).resolve().parent
 MAX_FILE_BYTES = 20 * 1024 * 1024
@@ -171,7 +172,7 @@ def create_app(data_dir: Path | None = None, access_code: str | None = None):
 
     @app.get("/api/health")
     def health():
-        return {"ok": True, "version": "0.1.0", "app": "xuhang"}
+        return {"ok": True, "version": "0.2.0", "app": "xuhang"}
 
     @app.get("/api/state", dependencies=[Depends(authorize)])
     def state(x_team_key: UUID | None = Header(default=None)):
@@ -393,6 +394,8 @@ def create_app(data_dir: Path | None = None, access_code: str | None = None):
             if card is None:
                 raise HTTPException(404, "未找到此版本")
             return card
+
+    install_collaboration(app, connect, access_code)
 
     dist = ROOT / "dist"
     if dist.exists():

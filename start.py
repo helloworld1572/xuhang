@@ -18,7 +18,7 @@ if __name__ == "__main__":
     data_dir = Path(os.environ.get("XUHANG_DATA_DIR", Path(__file__).parent / "data"))
     app = create_app(data_dir)
     code = (data_dir / "access-code.txt").read_text().strip()
-    print(f"\n续航 v0.1 已准备启动\n电脑：http://127.0.0.1:{args.port}\n项目访问码：{code}", flush=True)
+    print(f"\n续航 v0.2 团队工作台已准备启动\n电脑：http://127.0.0.1:{args.port}\n服务访问码：{code}", flush=True)
     for ip in lan_addresses():
         print(f"手机候选地址：http://{ip}:{args.port}（选择 Wi-Fi 网卡地址）", flush=True)
     print("电脑和手机连接同一 Wi-Fi。保持电脑开机和服务运行。Ctrl+C 停止。\n", flush=True)
